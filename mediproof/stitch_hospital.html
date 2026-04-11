@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-surface": "#e4e1f0",
+                "surface-dim": "#12121d",
+                "outline": "#958da1",
+                "surface-container-high": "#292934",
+                "secondary-fixed-dim": "#d2bbff",
+                "on-primary-container": "#ede0ff",
+                "surface-container": "#1f1f29",
+                "on-tertiary": "#4f2500",
+                "on-error-container": "#ffdad6",
+                "on-secondary-fixed": "#25005a",
+                "tertiary-fixed": "#ffdcc6",
+                "surface": "#12121d",
+                "inverse-primary": "#732ee4",
+                "surface-bright": "#393844",
+                "tertiary": "#ffb784",
+                "tertiary-fixed-dim": "#ffb784",
+                "surface-container-highest": "#34343f",
+                "secondary-fixed": "#eaddff",
+                "on-secondary-container": "#c3a6ff",
+                "on-tertiary-fixed-variant": "#713700",
+                "inverse-on-surface": "#302f3b",
+                "on-surface": "#e4e1f0",
+                "on-primary": "#3f008e",
+                "primary-container": "#7c3aed",
+                "error": "#ffb4ab",
+                "primary": "#d2bbff",
+                "tertiary-container": "#a15100",
+                "background": "#12121d",
+                "on-primary-fixed-variant": "#5a00c6",
+                "secondary": "#d2bbff",
+                "on-surface-variant": "#ccc3d8",
+                "on-primary-fixed": "#25005a",
+                "surface-variant": "#34343f",
+                "on-background": "#e4e1f0",
+                "error-container": "#93000a",
+                "on-tertiary-fixed": "#301400",
+                "on-secondary": "#3b1e6f",
+                "surface-container-lowest": "#0d0d17",
+                "secondary-container": "#523787",
+                "on-error": "#690005",
+                "surface-tint": "#d2bbff",
+                "primary-fixed": "#eaddff",
+                "outline-variant": "#4a4455",
+                "surface-container-low": "#1b1b25",
+                "on-tertiary-container": "#ffe0cd",
+                "on-secondary-fixed-variant": "#523787",
+                "primary-fixed-dim": "#d2bbff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a14;
+            color: #e4e1f0;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .technical-glow {
+            box-shadow: 0 0 40px -10px rgba(124, 58, 237, 0.15);
+        }
+        .inner-glow {
+            box-shadow: inset 0 0 1px 0.5px rgba(210, 187, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a14] min-h-screen">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 bg-[#12121d] dark:bg-[#12121d] border-b border-[#7c3aed]/20">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#7c3aed] uppercase tracking-wider font-headline">MediProof</span>
+<div class="hidden md:flex gap-6">
+<a class="text-[#7c3aed] font-bold border-b-2 border-[#7c3aed] pb-2 transition-all duration-300 font-label" href="#">Hospital</a>
+<a class="text-[#e4e1f0]/60 font-medium hover:text-[#e4e1f0] transition-colors font-label" href="#">Researcher</a>
+<a class="text-[#e4e1f0]/60 font-medium hover:text-[#e4e1f0] transition-colors font-label" href="#">Auditor</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-container text-on-primary-container hover:bg-primary transition-all active:scale-95 font-label font-semibold">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+                    Connect Lace Wallet
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-3xl mx-auto px-6 py-12 space-y-12">
+<!-- Header Card -->
+<header class="relative overflow-hidden rounded-xl border border-[#7c3aed]/40 bg-surface-container-low p-8 technical-glow inner-glow">
+<div class="flex items-start gap-6">
+<div class="p-4 rounded-xl bg-primary-container/10 border border-primary/20">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="database">database</span>
+</div>
+<div class="space-y-2">
+<h1 class="text-3xl font-extrabold font-headline text-on-surface tracking-tight">Hospital Dataset Commitment</h1>
+<p class="text-on-surface-variant leading-relaxed">
+                        Commit your de-identified patient dataset to the Midnight Network. 
+                        <span class="text-primary font-medium">ZK proofs guarantee HIPAA compliance.</span>
+</p>
+</div>
+</div>
+</header>
+<!-- Main Form Card -->
+<section class="rounded-xl border border-[#7c3aed]/30 bg-surface-container-lowest p-10 space-y-10 inner-glow">
+<!-- Hospital Name Input -->
+<div class="space-y-3">
+<label class="block text-xs font-semibold uppercase tracking-widest text-primary/70 font-label">Hospital Name</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest/30 border-b-2 border-primary/40 focus:border-primary focus:ring-0 text-on-surface placeholder-on-surface-variant/40 py-3 transition-all" placeholder="Enter formal clinical entity name" type="text"/>
+<div class="mt-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-primary/60">lock_open</span>
+<p class="text-[10px] text-on-surface-variant font-label italic">Hashed to hospital_id_hash — never stored raw</p>
+</div>
+</div>
+</div>
+<!-- Disease Category -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-3">
+<label class="block text-xs font-semibold uppercase tracking-widest text-primary/70 font-label">Disease Category</label>
+<select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg text-on-surface py-2.5 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none cursor-pointer">
+<option value="oncology">oncology</option>
+<option value="cardiology">cardiology</option>
+<option value="neurology">neurology</option>
+<option value="orthopedics">orthopedics</option>
+<option value="diabetes">diabetes</option>
+</select>
+</div>
+<div class="space-y-3">
+<label class="block text-xs font-semibold uppercase tracking-widest text-primary/70 font-label">Record Count</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg text-on-surface py-2.5 px-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" min="500" placeholder="0" type="number"/>
+<div class="mt-2 flex flex-col gap-1">
+<span class="text-[10px] text-primary/80 font-medium">(Used as ZK witness — never stored or transmitted)</span>
+<span class="text-[10px] text-outline/60 italic">Minimum threshold: 500 records (enforced by ZK circuit)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Schema Fields -->
+<div class="space-y-4">
+<label class="block text-xs font-semibold uppercase tracking-widest text-primary/70 font-label">Schema Fields</label>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+<!-- Checkbox Pills -->
+<label class="flex items-center justify-center p-3 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold cursor-pointer transition-all hover:bg-primary/30">
+<input checked="" class="hidden" type="checkbox"/>
+                        age
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold cursor-pointer transition-all hover:bg-primary/30">
+<input checked="" class="hidden" type="checkbox"/>
+                        gender
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold cursor-pointer transition-all hover:bg-primary/30">
+<input checked="" class="hidden" type="checkbox"/>
+                        icd_10_code
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-surface-container-highest border border-outline-variant/20 text-on-surface-variant text-xs font-medium cursor-pointer transition-all hover:border-primary/50">
+<input class="hidden" type="checkbox"/>
+                        admission_date
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold cursor-pointer transition-all hover:bg-primary/30">
+<input checked="" class="hidden" type="checkbox"/>
+                        lab_results
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-surface-container-highest border border-outline-variant/20 text-on-surface-variant text-xs font-medium cursor-pointer transition-all hover:border-primary/50">
+<input class="hidden" type="checkbox"/>
+                        medications
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-surface-container-highest border border-outline-variant/20 text-on-surface-variant text-xs font-medium cursor-pointer transition-all hover:border-primary/50">
+<input class="hidden" type="checkbox"/>
+                        vitals
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-surface-container-highest border border-outline-variant/20 text-on-surface-variant text-xs font-medium cursor-pointer transition-all hover:border-primary/50">
+<input class="hidden" type="checkbox"/>
+                        procedure_codes
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-surface-container-highest border border-outline-variant/20 text-on-surface-variant text-xs font-medium cursor-pointer transition-all hover:border-primary/50">
+<input class="hidden" type="checkbox"/>
+                        cpt_codes
+                    </label>
+<label class="flex items-center justify-center p-3 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold cursor-pointer transition-all hover:bg-primary/30">
+<input checked="" class="hidden" type="checkbox"/>
+                        outcome_flag
+                    </label>
+</div>
+</div>
+<!-- Commit Button -->
+<div class="pt-6">
+<button class="w-full py-5 rounded-xl bg-gradient-to-r from-primary-container to-primary text-on-primary font-extrabold text-lg flex items-center justify-center gap-3 shadow-lg active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    Commit Dataset with ZK Proof
+                </button>
+</div>
+</section>
+<!-- ZK Progress Tracker -->
+<section class="bg-surface-container-low rounded-xl p-8 space-y-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-outline">Protocol Verification Progress</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 text-emerald-400">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium">Step 1: Hashing hospital identity</span>
+</div>
+<div class="flex items-center gap-4 text-primary animate-pulse">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+<span class="text-sm font-bold">Step 2: Building compliance witness</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-xl">pending</span>
+<span class="text-sm">Step 3: Compiling validation circuit</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-xl">pending</span>
+<span class="text-sm">Step 4: Executing private witness generation</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-xl">pending</span>
+<span class="text-sm">Step 5: Verifying zero-knowledge proof</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-xl">pending</span>
+<span class="text-sm">Step 6: Network commitment finalization</span>
+</div>
+</div>
+</section>
+<!-- Privacy Message -->
+<div class="flex flex-col items-center gap-3 text-center">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+<span class="font-headline font-bold text-lg">🔒 Your patient records never leave your server.</span>
+</div>
+<p class="max-w-md text-xs text-on-surface-variant/60 leading-relaxed">
+                The Midnight Network utilizes zero-knowledge proofs to verify your data satisfies all network rules without ever seeing the contents.
+            </p>
+</div>
+<!-- Success State Card -->
+<section class="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-8 space-y-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold tracking-tighter uppercase border border-emerald-500/30">ZK Mode Active</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<h2 class="text-2xl font-bold font-headline text-emerald-400">Dataset Committed Successfully</h2>
+</div>
+<div class="grid gap-4 bg-black/20 p-6 rounded-lg font-mono text-xs">
+<div class="flex flex-col gap-1">
+<span class="text-emerald-500/60 uppercase text-[10px] tracking-widest font-bold">dataset_id</span>
+<span class="text-emerald-100">mp_8k2n9v1m0z_sec_hosp</span>
+</div>
+<div class="flex flex-col gap-1 overflow-hidden">
+<span class="text-emerald-500/60 uppercase text-[10px] tracking-widest font-bold">compliance_proof_hash</span>
+<span class="text-emerald-100 truncate">0x7f4e8d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e...</span>
+</div>
+<div class="flex items-center justify-between border-t border-emerald-500/10 pt-4 mt-2">
+<div class="flex flex-col">
+<span class="text-emerald-500/60 uppercase text-[10px] tracking-widest font-bold">Exposed Data</span>
+<span class="text-white font-bold text-sm">0 bytes</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#ffb784]"></div>
+<span class="text-[10px] font-bold text-tertiary uppercase">Technical Live Pulse</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Decorative Atmosphere Elements -->
+<div class="fixed bottom-0 left-0 w-full h-[307px] bg-gradient-to-t from-primary/5 to-transparent pointer-events-none -z-10"></div>
+<div class="fixed top-20 -left-40 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+<div class="fixed bottom-20 -right-40 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+</body></html>

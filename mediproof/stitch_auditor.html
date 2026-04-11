@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MediProof | Compliance Auditor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#005236",
+                        "inverse-primary": "#732ee4",
+                        "on-primary-fixed": "#25005a",
+                        "on-secondary-container": "#00311f",
+                        "on-tertiary-container": "#ffdedf",
+                        "tertiary-container": "#c81a42",
+                        "tertiary": "#ffb2b7",
+                        "on-primary-container": "#ede0ff",
+                        "primary-container": "#7c3aed",
+                        "surface": "#12121d",
+                        "primary-fixed": "#eaddff",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-bright": "#393844",
+                        "surface-container-highest": "#34343f",
+                        "surface-tint": "#d2bbff",
+                        "outline-variant": "#4a4455",
+                        "primary-fixed-dim": "#d2bbff",
+                        "surface-variant": "#34343f",
+                        "surface-container-low": "#1b1b25",
+                        "surface-container-high": "#292934",
+                        "secondary-fixed": "#6ffbbe",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#67001b",
+                        "on-background": "#e4e1f0",
+                        "on-primary": "#3f008e",
+                        "surface-container-lowest": "#0d0d17",
+                        "primary": "#d2bbff",
+                        "on-surface": "#e4e1f0",
+                        "surface-container": "#1f1f29",
+                        "inverse-surface": "#e4e1f0",
+                        "surface-dim": "#12121d",
+                        "secondary": "#4edea3",
+                        "on-tertiary-fixed": "#40000d",
+                        "background": "#0a0a14",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-fixed": "#ffdadb",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#ccc3d8",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "inverse-on-surface": "#302f3b",
+                        "secondary-fixed-dim": "#4edea3",
+                        "outline": "#958da1",
+                        "secondary-container": "#00a572",
+                        "on-secondary": "#003824"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0a0a14;
+            color: #e4e1f0;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(31, 31, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(74, 68, 85, 0.15);
+        }
+        .glow-aura {
+            background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#0a0a14]/80 backdrop-blur-xl docked full-width top-0 z-50 sticky shadow-[0_20px_40px_rgba(124,58,237,0.08)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-violet-600" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-headline tracking-tighter">MediProof</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 font-medium hover:bg-slate-800/50 hover:text-violet-400 transition-all duration-300 px-3 py-1 rounded" href="#">Hospital</a>
+<a class="text-slate-400 font-medium hover:bg-slate-800/50 hover:text-violet-400 transition-all duration-300 px-3 py-1 rounded" href="#">Researcher</a>
+<a class="text-violet-500 border-b-2 border-violet-500 font-bold px-3 py-1" href="#">Auditor</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-violet-400 p-2"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-slate-400 hover:text-violet-400 p-2"><span class="material-symbols-outlined">settings</span></button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img alt="Auditor Profile" class="w-full h-full object-cover" data-alt="professional portrait of a senior compliance auditor in a dark studio setting with soft side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWc6_ZvCP43W_IzUQ7yjSld-GJLBZIBT6-luFKW1K9OXPzkLcdf4m-yXgFTnyDSOiC-fW_s6I5kKCEQYCT_x2ha0DBFd7n0jFRQFBhzWkNZxcgVZFGx5a5XB2L3eoA8OMblYU227LKwKL-tvmxAr1RQ8WExPJWlGq2wTO1UXPlTU0onQ2d3qL6O1FcNosgslV0vjx9io-HWKKXR5lMMziqp9MBFVfAgVhCk2a8hMJtjocWXbP8PCIq2d7aG5rRUIEdyporh1gn9wg"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-3xl mx-auto px-6 pt-12 pb-24 space-y-8 relative">
+<!-- Ambient Security Aura -->
+<div class="fixed inset-0 pointer-events-none glow-aura -z-10"></div>
+<!-- Header Card -->
+<div class="text-center space-y-4">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-container/10 mb-2">
+<span class="material-symbols-outlined text-primary-container text-5xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-background">Compliance Auditor</h1>
+<p class="text-on-surface-variant max-w-lg mx-auto text-balance leading-relaxed">
+                Inspect on-chain ZK proofs. HIPAA compliance is verifiable on-chain — no auditor can access patient data.
+            </p>
+</div>
+<!-- Search Card -->
+<section class="surface-container rounded-xl p-6 shadow-sm">
+<label class="block text-xs font-bold uppercase tracking-widest text-outline mb-3 ml-1">Dataset ID</label>
+<div class="flex flex-col md:flex-row gap-3">
+<div class="relative flex-grow">
+<input class="w-full bg-surface-container-low border-none rounded-lg py-3 px-4 font-mono text-sm text-secondary focus:ring-1 focus:ring-primary-container transition-all placeholder:text-outline-variant" placeholder="8f2a-9e1b-4c7d-55b3-2e01a67f" type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container font-headline font-bold px-8 py-3 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all shadow-[0_10px_20px_rgba(124,58,237,0.2)]">
+<span class="material-symbols-outlined text-lg">search</span>
+                    AUDIT
+                </button>
+</div>
+</section>
+<!-- Compliance Banner -->
+<section class="bg-secondary-container rounded-xl p-6 text-on-secondary-container flex items-start gap-5 shadow-lg relative overflow-hidden">
+<div class="bg-white/20 p-2 rounded-full shrink-0">
+<span class="material-symbols-outlined text-white text-3xl font-bold">check_circle</span>
+</div>
+<div class="space-y-1">
+<h2 class="text-2xl font-headline font-extrabold tracking-tight text-white">HIPAA Compliant — ZK Verified</h2>
+<p class="text-sm font-mono opacity-80 leading-snug">commit_dataset circuit confirmed de-identification and record threshold without revealing patient data</p>
+</div>
+<!-- Decorative Pattern -->
+<div class="absolute right-0 top-0 opacity-10 pointer-events-none translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-9xl">enhanced_encryption</span>
+</div>
+</section>
+<!-- On-Chain Proof Record Card -->
+<section class="surface-container rounded-xl overflow-hidden relative">
+<div class="absolute top-4 right-4">
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+<div class="p-6 border-b border-outline-variant/10">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline">On-Chain Proof Record</h3>
+</div>
+<div class="p-6 space-y-5">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Compliance</span>
+<span class="text-secondary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        HIPAA Compliant
+                    </span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Training Proven</span>
+<span class="text-secondary font-bold">✅ Yes</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Model Hash</span>
+<span class="font-mono text-sm bg-surface-container-lowest px-2 py-1 rounded">0x7f23...a812</span>
+</div>
+<div class="flex justify-between items-start gap-4">
+<span class="text-on-surface-variant font-medium shrink-0">Proof Hash</span>
+<span class="font-mono text-xs text-primary-container text-right break-all leading-relaxed">0x6b8f1...de92c00a...fb11</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Bytes Exposed</span>
+<span class="text-secondary font-bold">0 bytes</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">ZK Mode</span>
+<span class="bg-surface-container-high px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                        ZK mock
+                    </span>
+</div>
+</div>
+</section>
+<!-- Audit Log Panel -->
+<section class="surface-container rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline">Audit Log</h3>
+</div>
+<div class="divide-y divide-outline-variant/5">
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<div>
+<p class="font-mono text-sm text-on-surface">ds_8f2a...a67f</p>
+<p class="text-xs text-outline">2 mins ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-outline cursor-pointer">arrow_forward_ios</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+<div>
+<p class="font-mono text-sm text-on-surface">ds_3b11...92d1</p>
+<p class="text-xs text-outline">14 mins ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-outline cursor-pointer">arrow_forward_ios</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant/10 text-center">
+<span class="text-xs font-mono text-outline">2 entries retrieved from ledger</span>
+</div>
+</section>
+<!-- Privacy Message -->
+<div class="flex flex-col items-center gap-2 py-4">
+<span class="material-symbols-outlined text-outline/40">lock</span>
+<p class="text-sm text-outline/60 text-center max-w-xs">
+                HIPAA compliance is verifiable on-chain. No auditor can access patient data.
+            </p>
+</div>
+<!-- Smart Contract Viewer -->
+<section class="surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10">
+<div class="p-4 flex items-center justify-between bg-surface-container-high/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-outline">data_object</span>
+<span class="text-xs font-mono font-bold tracking-tight text-outline">CONTRACTS / HIPAA_ZK_VERIFIER.COMP</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-high text-[10px] font-bold text-on-surface hover:bg-surface-container-highest transition-colors uppercase tracking-widest">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+                    Copy
+                </button>
+</div>
+<div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto whitespace-pre bg-[#0d0d17]">
+<span class="text-outline/40 mr-4">01</span><span class="text-primary-container">contract</span> <span class="text-on-surface">MediProofAuditor {</span>
+<span class="text-outline/40 mr-4">02</span> <span class="text-tertiary italic">// PRIVATE witness: patient_metadata contains sensitive identifiers</span>
+<span class="text-outline/40 mr-4">03</span> <span class="text-primary-container">function</span> <span class="text-secondary">verify_threshold</span>(uint256 record_count) {
+<span class="text-outline/40 mr-4">04</span> <span class="text-amber-500">assert</span>(record_count &gt; 100);
+<span class="text-outline/40 mr-4">05</span> <span class="text-tertiary italic">// Ensure salt is non-zero to prevent dictionary attacks</span>
+<span class="text-outline/40 mr-4">06</span> <span class="text-amber-500">assert</span>(witness.salt != 0);
+<span class="text-outline/40 mr-4">07</span> <span class="text-secondary-container">disclose</span>(status.COMPLIANT);
+<span class="text-outline/40 mr-4">08</span> <span class="text-secondary-container">disclose</span>(commitment.ROOT_HASH);
+<span class="text-outline/40 mr-4">09</span>  }
+<span class="text-outline/40 mr-4">10</span>}</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-[#0a0a14]/90 backdrop-blur-lg border-t border-violet-500/10 z-50">
+<div class="flex flex-col items-center justify-center text-slate-500 p-2">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium mt-1">Audit Log</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 p-2">
+<span class="material-symbols-outlined">enhanced_encryption</span>
+<span class="text-[10px] font-medium mt-1">ZK-Proofs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-violet-400 bg-violet-500/10 rounded-xl p-2 scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-[10px] font-medium mt-1">Verified</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 p-2">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-medium mt-1">Profile</span>
+</div>
+</nav>
+</body></html>
